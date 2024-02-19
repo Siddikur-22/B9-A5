@@ -79,17 +79,22 @@ apply.addEventListener('click',function(){
         const grandTotal = totalPrice * 0.15;
         const disCountGrandTotal = totalPrice - grandTotal;
         grandPriceElement.innerText = disCountGrandTotal;
-       
-        document.getElementById('input-field').value ='';
-
+        
+        const discountPrice =document.getElementById('discountPrice');
+        discountPrice.innerText=grandTotal;
+        
+        // document.getElementById('input-field').value ='';
+        
+        const inputDiv = document.getElementById('input-div');
+        inputDiv.classList.add('hidden');
+        
     }
     else if( convertCoupon === "COUPLE20"){
         const grandPriceElement = document.getElementById('grand');
         const grandTotal = totalPrice * 0.2;
+
         const disCountGrandTotal = totalPrice - grandTotal;
         grandPriceElement.innerText = disCountGrandTotal;
-
-        document.getElementById('input-field').value ='';
 
         const discountPrice =document.getElementById('discountPrice');
         discountPrice.innerText=grandTotal;
@@ -97,7 +102,9 @@ apply.addEventListener('click',function(){
         const inputDiv = document.getElementById('input-div');
         inputDiv.classList.add('hidden');
 
-        
+        document.getElementById('input-field').value ='';
+
+    
     }
 
     else{
