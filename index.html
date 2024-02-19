@@ -60,7 +60,7 @@
                     <a class="btn btn-ghost text-3xl font-extrabold">P-Ticket</a>
                 </div>
                 <div class="navbar-center hidden lg:flex">
-                    <ul class="menu menu-horizontal px-1">
+                    <ul class="menu menu-horizontal px-1 text-base">
                         <li><a>Home</a></li>
                         <li><a>About</a></li>
                         <li>
@@ -330,7 +330,13 @@
                                 <h1>BDT <span id="total-price">0</span></h1>
                             </div>
 
-                            <div class="join mb-5">
+                            <!-- Discount price -->
+                            <div class="flex justify-between text-base font-medium mb-2 ">
+                                <h4 class="seat-title">Discount Price</h4>
+                                <p>BDT <span id="discountPrice">0</span></p>
+                            </div>
+
+                            <div id="input-div" class="join mb-5">
                                 <input id="input-field" class="input mr-9 join-item" placeholder="Have any copupon?" />
                                 <button id="Apply" class="btn join-item rounded bg-green  text-base text-white">Apply</button>
                             </div>
@@ -364,14 +370,18 @@
 
                           
 
-                            <a href="#my_modal_8" onclick="play()" class="btn bg-green w-80 mt-5 text-white text-xl">Next</a>
+                            <a href="#my_modal_8" onclick="play()" id="nextButton" class="hide btn bg-green w-80 mt-5 text-white text-xl">Next</a>
                             
                             <div class="modal" role="dialog" id="my_modal_8">
-                                <div class="modal-box">
-                                    <h3 class="font-bold text-lg">Hello!</h3>
-                                    <p class="py-4">This modal works with anchor links</p>
-                                    <div class="modal-action">
-                                        <a href="#" class="btn">Yay!</a>
+                                <div class="modal-box  ">
+                                    <div class="flex justify-center">
+                                        <img class="" src="images/success.png" alt="">
+                                    </div>
+                                    <h3 class="font-bold text-xl text-center justify-center text-[#20AE5C]">SUCCESS</h3>
+                                    <p class="py-4 text-center font-bold text-black">Thank you for Booking Our Bus Seats.We are working hard to find the best services and deals for you</p>
+                                    <p class="text-center text-[#4A4A4A]">Shortly you will find a confirmation in your email.</p>
+                                    <div class="modal-action mr-28">
+                                        <a href="#" class="btn bg-[#20AE5C] w-60 rounded-full  text-xl text-white justify-center items-center">Continue</a>
                                     </div>
                                 </div>
                             </div>
@@ -407,6 +417,8 @@
             <nav>
 
             </nav>
+
+           
             <nav>
                 <a class="link link-hover">Download our app</a>
                 <div class="flex border p-2 rounded-lg">
@@ -416,6 +428,7 @@
                         <h2 class="text-xl">Google Play</h2>
                     </div>
                 </div>
+                
                 <div class="flex mt-8 gap-10">
                     <a class="link link-hover">Terms & condition</a>
                     <a class="link link-hover">Return & refund policy</a>
@@ -427,31 +440,6 @@
         </footer>
     </main>
 
-
-
-
-    <section id="success" class="max-w-[1170px] mx-auto mt-20 mb-32 -mr-52 hidden ">
-
-        <div class="card w-96 bg-base-100 shadow-xl ">
-            <figure class="px-10 pt-10">
-                <img src="images/success.png" alt="Shoes" class="rounded-xl" />
-            </figure>
-            <div class="card-body items-center text-center">
-                <h2 class="card-title text-[#20AE5C] text-xl ">SUCCESS</h2>
-                <p class="">Thank you for Booking Our Bus Seats. We are working hard to find the best service and deals
-                    for you.</p>
-                <p class="text-[#4A4A4A]">SHortly you will find a conformation in your email. </p>
-                <div class="card-actions">
-                    <button
-                        class="btn bg-[#20AE5C] text-xl hover:bg-[#20AE5C] text-white w-60 rounded-3xl">Continue</button>
-                </div>
-            </div>
-        </div>
-
-
-
-
-    </section>
 
     <script src="index.js"></script>
 </body>

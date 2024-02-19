@@ -1,5 +1,4 @@
 const allBtn = document.getElementsByClassName("btn"); 
-
 let seatsCount = 40;
 let countUp = 0;
 let totalPrice = 0;
@@ -81,21 +80,31 @@ apply.addEventListener('click',function(){
         const disCountGrandTotal = totalPrice - grandTotal;
         grandPriceElement.innerText = disCountGrandTotal;
        
-        // document.getElementById('input-field').value ='';
+        document.getElementById('input-field').value ='';
 
     }
     else if( convertCoupon === "COUPLE20"){
         const grandPriceElement = document.getElementById('grand');
         const grandTotal = totalPrice * 0.2;
-        const disCountGrandTotal = total - grandTotal;
+        const disCountGrandTotal = totalPrice - grandTotal;
         grandPriceElement.innerText = disCountGrandTotal;
 
-        // document.getElementById('input-field').value ='';
+        document.getElementById('input-field').value ='';
+
+        const discountPrice =document.getElementById('discountPrice');
+        discountPrice.innerText=grandTotal;
+
+        const inputDiv = document.getElementById('input-div');
+        inputDiv.classList.add('hidden');
+
+        
     }
-    // else{
-    //     alert("Invalid Your Coupon Code");
-    //     // document.getElementById('input-field').value='';
-    // }
+
+    else{
+        alert("Invalid Your Coupon Code");
+        document.getElementById('input-field').value= '';
+    }
+
 
 
     const nextButton = document.getElementById('nextButton');
@@ -111,9 +120,23 @@ apply.addEventListener('click',function(){
         nextButton.classList.add('hide');
 
     }
+
+   
+
+    if(countUp !== 0 && phoneNumber !=''){
+        nextButton.classList.remove('hide');
+        nextButton.classList.add.apply('bg-[#1DD100');
+        nextButton.classList.add('text-white');
+
+    }
+    else{
+        nextButton.classList.add('hide');
+    }
+
     if(!btn.disabled){
         btn.disabled = true;
     }
+   
 
 
 })
