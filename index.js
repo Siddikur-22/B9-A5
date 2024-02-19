@@ -1,11 +1,20 @@
 const allBtn = document.getElementsByClassName("btn"); 
+
 let seatsCount = 40;
 let countUp = 0;
-let totalPrice =0;
+let totalPrice = 0;
+
 
 
 for( const btn of allBtn){
     btn.addEventListener("click",function(){
+
+        if(countUp >=4){
+            alert("You cannot selected more 4 Ticket");
+            return;
+        
+        }
+
         seatsCount  =  seatsCount - 1;
         
         const seatLeft = document.getElementById('cart-count');
@@ -52,16 +61,18 @@ for( const btn of allBtn){
         totalPrice =totalPrice + parseInt(price);
         
 
-        const totalPriceElemet =document.getElementById('total-price');
-        totalPriceElemet.innerText = totalPrice;
+        const totalPriceElement =document.getElementById('total-price');
+        totalPriceElement.innerText = totalPrice;
 
 
     })
 }
 
-const apply =document.getElementById('apply');
+
+const apply =document.getElementById('Apply');
 apply.addEventListener('click',function(){
     const couponElement = document.getElementById('input-field').value;
+  
     const convertCoupon = couponElement.split(' ').join('').toUpperCase();
 
     if(convertCoupon === 'NEW15'){
@@ -69,23 +80,62 @@ apply.addEventListener('click',function(){
         const grandTotal = totalPrice * 0.15;
         const disCountGrandTotal = totalPrice - grandTotal;
         grandPriceElement.innerText = disCountGrandTotal;
-
-        document.getElementById('input-field').value = '';
+       
+        // document.getElementById('input-field').value ='';
 
     }
     else if( convertCoupon === "COUPLE20"){
         const grandPriceElement = document.getElementById('grand');
         const grandTotal = totalPrice * 0.2;
-        const disCountGrandTotal = total -grandTotal;
+        const disCountGrandTotal = total - grandTotal;
         grandPriceElement.innerText = disCountGrandTotal;
 
-        document.getElementById('input-field').value ='';
+        // document.getElementById('input-field').value ='';
+    }
+    // else{
+    //     alert("Invalid Your Coupon Code");
+    //     // document.getElementById('input-field').value='';
+    // }
+
+
+    const nextButton = document.getElementById('nextButton');
+
+    const phoneNumber = document.getElementById('phoneNumber');
+
+    if(countUp !==0 && phoneNumber != ''){
+        nextButton.classList.remove('hide');
+        nextButton.classList.add('bg-green');
+        nextButton.classList.add('text-white');
     }
     else{
-        alert("Invalid Your Coupon Code");
-        document.getElementById('input-field').value='';
+        nextButton.classList.add('hide');
+
     }
+    if(!btn.disabled){
+        btn.disabled = true;
+    }
+
+
 })
+
+
     
+
+
+function  play(){
+    const successContainer= document.getElementById('success');
+    successContainer.classList.remove('hidden');
+    
+    // console.log(homeScreen.classList);
+}
+
+
+
+
+
+
+
+
+
 
 
